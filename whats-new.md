@@ -1061,3 +1061,99 @@
   с новой константой
   CURLMOPT_PUSHFUNCTION. Также добавлены константы CURL_PUSH_OK и CURL_PUSH_DENY,
   для определения, был ли прнинят или отклонен "server push".
+### PHP 7.2 (??.??.2017)
+* **В Opcache добавлена глобальная оптимизация на основе анализа потока данных с использованием SSA
+  (Static single assignment form): Sparse Conditional Constant Propagation (SCCP), удаление мертвого кода
+  (Dead Code Elimination — DCE) и удаление неиспользуемых локальных переменных**
+* **Оптимизирована работа встроенной функции in_array() с помощью поиска хеша в перевернутом массиве**
+* Добавлена возможность перегрузки абстрактных методов
+* Добавлена возможность расширять `typehint`.
+  
+  К примеру:
+    ```php
+    <?php
+    class ArrayClass {
+      public function foo(array $foo) { /* ... */ }
+    }
+     
+    class EverythingClass extends ArrayClass {
+      public function foo($foo) { /* ... */ }
+    }
+    ```
+* Добавлен typehint `object`
+* Добавлена возможность указывать запятую в конце всех списков
+  
+  К примеру:
+  ```php
+  <?php
+  // Раньше это работало только для массивов
+  $array = [1, 2, 3,];
+  // Следующие выражения возвращали ошибку `Parse error`
+  
+  // Группировка нейспейсов
+  use Foo\Bar\{ Foo, Bar, Baz, };
+  
+  // Аргументы функций и методов
+  fooCall($arg1, $arg2, $arg3,);
+  
+  // Перечисление реализуемых интерфейсов
+  class Foo implements
+      FooInterface,
+      BarInterface,
+      BazInterface,
+  {
+      // Перечисление трейтов
+      use
+          FooTrait,
+          BarTrait,
+          BazTrait,
+      ;
+   
+      // Перечисление свойств и констант
+      const
+          A = 1010,
+          B = 1021,
+          C = 1032,
+          D = 1043,
+      ;
+      protected
+          $a = 'foo',
+          $b = 'bar',
+          $c = 'baz',
+      ;
+      private
+          $blah,
+      ;
+   
+      // Декларация функций и методов
+      function something(FooBarBazInterface $in, FooBarBazInterface $out,) : bool
+      {
+      }
+  }
+   
+  // Наследование переменных из родительской области в анонимных функциях
+  $foo = function ($bar) use (
+      $a,
+      $b,
+      $c,
+  ) {
+  	// . . . 
+  };
+  ```
+* Добавлено новое криптографическое расширение Sodium
+  [RFC: Make Libsodium a Core Extension](https://wiki.php.net/rfc/libsodium)
+* В функции json_encode и json_decode добавлены опции
+  JSON_INVALID_UTF8_IGNORE и JSON_INVALID_UTF8_SUBSTITUTE для игнорирования
+  или замены некорректных последовательностей байтов UTF-8.
+* Расширения теперь разрешено загружать в ini файлах по имени `(extension=<name>)`
+* Расширение `mcrypt`, объявленное устаревшим в PHP 7.1, было перемещено в _PECL_.
+* Строки без кавычек теперь вызывают _E_WARNING_.
+  В PHP2 такие строки вызывали `Syntax error`, но в PHP3 бета поведение было изменено.
+  К примеру:
+  ```php
+  $foo = flase; // Опечатка, но вызывалась ошибка E_NOTICE, которая часто отключается.  
+  // ...
+  if ( $foo ) {
+     var_dump($foo); // string(5) "flase"
+  }
+    ```
