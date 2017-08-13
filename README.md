@@ -1,3 +1,11 @@
+<div align="center">
+
+[![GitHub issues](https://img.shields.io/github/issues/webcoder-club/php-whats-new.svg?style=plastic)](https://github.com/webcoder-club/php-whats-new/issues)
+[![GitHub stars](https://img.shields.io/github/stars/webcoder-club/php-whats-new.svg?style=plastic)](https://github.com/webcoder-club/php-whats-new/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/webcoder-club/php-whats-new.svg?style=plastic)](https://github.com/webcoder-club/php-whats-new/network)
+
+</div>
+
 # Что нового в PHP
 Вначале каждого списка идут изменения, которые затрагивают **производительность**, затем новая функциональность.
 
