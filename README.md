@@ -38,5 +38,6 @@
 * [short changelog](http://php.net/manual/ru/doc.changelog.php)
 * [full changelog php5](http://php.net/ChangeLog-5.php)
 * [full changelog php7](http://php.net/ChangeLog-7.php)
+* [php internals book](http://www.phpinternalsbook.com/)
 
 Описание находится в ~~бесконечном~~ процессе.
