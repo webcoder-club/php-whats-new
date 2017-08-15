@@ -1,5 +1,6 @@
 <div align="center">
 
+![Logo][logo]
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](https://raw.githubusercontent.com/webcoder-club/php-whats-new/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/webcoder-club/php-whats-new.svg?style=plastic)](https://github.com/webcoder-club/php-whats-new/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/webcoder-club/php-whats-new.svg?style=plastic)](https://github.com/webcoder-club/php-whats-new/network)
@@ -41,3 +42,5 @@
 * [php internals book](http://www.phpinternalsbook.com/)
 
 Описание находится в ~~бесконечном~~ процессе.
+
+[logo]: resourses/logo.png "PHP what's new"
